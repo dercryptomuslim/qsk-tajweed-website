@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bewerbung für QSK Tajweed Kurs | Marcel Krass</title>
+    <meta name="description" content="Bewirb dich jetzt für den QSK Tajweed Kurs. Beantworte ein paar Fragen, damit wir dir bestmöglich helfen können.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #8B7355;
+            --secondary-color: #FFD700;
+            --dark-bg: #1a1a1a;
+            --light-text: #ffffff;
+            --accent-green: #28a745;
+            --danger-red: #dc3545;
+            --light-gray: #f8f9fa;
+            --border-color: #e9ecef;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-bg);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-green));
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Form Container */
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Question Sections */
+        .question-section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .question-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .question-section.completed {
+            opacity: 0.7;
+        }
+
+        .question-number {
+            background: var(--secondary-color);
+            color: var(--dark-bg);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .question-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-bg);
+            margin-bottom: 10px;
+        }
+
+        .question-subtitle {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        /* Input Styles */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Radio Buttons und Checkboxes */
+        .radio-group,
+        .checkbox-group {
+            display: grid;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .radio-option:hover,
+        .checkbox-option:hover {
+            border-color: var(--secondary-color);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .radio-option.selected,
+        .checkbox-option.selected {
+            border-color: var(--secondary-color);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .radio-option input,
+        .checkbox-option input {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Navigation Buttons */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), #FFA500);
+            color: var(--dark-bg);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--secondary-color);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        /* Success Message */
+        .success-container {
+            display: none;
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .success-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+        }
+
+        .success-text {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .form-container {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-top: 3px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Error Styles */
+        .error {
+            color: var(--danger-red);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: var(--danger-red);
+        }
+
+        .form-group.error .error {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="assets/qsktajweedlogo.png" alt="QSK Tajweed Logo">
+            </div>
+            <h1>Deine Bewerbung für den QSK Tajweed Kurs</h1>
+            <p>Beantworte ein paar Fragen, damit wir dir bestmöglich helfen können, deine Quran-Rezitation zu perfektionieren.</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Schritt 1 von 8</div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <form id="applicationForm">
+                
+                <!-- Frage 1: Persönliche Daten -->
+                <div class="question-section active" data-step="1">
+                    <div class="question-number">1</div>
+                    <h2 class="question-title">Persönliche Informationen</h2>
+                    <p class="question-subtitle">Lass uns dich kennenlernen</p>
+                    
+                    <div class="form-group">
+                        <label for="firstName">Wie ist dein Vorname? *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                        <div class="error">Bitte gib deinen Vornamen ein</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Wie ist dein Nachname? *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                        <div class="error">Bitte gib deinen Nachnamen ein</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Deine E-Mail-Adresse *</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error">Bitte gib eine gültige E-Mail-Adresse ein</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Deine Telefonnummer (WhatsApp)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+
+                <!-- Frage 2: Aktuelle Situation -->
+                <div class="question-section" data-step="2">
+                    <div class="question-number">2</div>
+                    <h2 class="question-title">Deine aktuelle Situation</h2>
+                    <p class="question-subtitle">Wo stehst du gerade mit deiner Quran-Rezitation?</p>
+                    
+                    <div class="radio-group">
+                        <div class="radio-option" onclick="selectRadio(this, 'currentLevel')">
+                            <input type="radio" name="currentLevel" value="beginner" id="beginner">
+                            <label for="beginner">Ich bin Anfänger - kann noch gar nicht arabisch lesen</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'currentLevel')">
+                            <input type="radio" name="currentLevel" value="basic" id="basic">
+                            <label for="basic">Ich kann die Buchstaben, aber meine Aussprache ist unsicher</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'currentLevel')">
+                            <input type="radio" name="currentLevel" value="intermediate" id="intermediate">
+                            <label for="intermediate">Ich kann lesen, aber kenne die Tajweed-Regeln nicht</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'currentLevel')">
+                            <input type="radio" name="currentLevel" value="advanced" id="advanced">
+                            <label for="advanced">Ich kenne einige Regeln, möchte aber perfektionieren</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 3: Ziele -->
+                <div class="question-section" data-step="3">
+                    <div class="question-number">3</div>
+                    <h2 class="question-title">Was ist dein Hauptziel?</h2>
+                    <p class="question-subtitle">Was möchtest du am Ende des Kurses erreicht haben?</p>
+                    
+                    <div class="checkbox-group">
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="goals" value="confident-prayer" id="confident-prayer">
+                            <label for="confident-prayer">Selbstbewusst im Gebet rezitieren</label>
+                        </div>
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="goals" value="mosque-recitation" id="mosque-recitation">
+                            <label for="mosque-recitation">In der Moschee vorbeten können</label>
+                        </div>
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="goals" value="teach-others" id="teach-others">
+                            <label for="teach-others">Anderen Tajweed beibringen</label>
+                        </div>
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="goals" value="perfect-pronunciation" id="perfect-pronunciation">
+                            <label for="perfect-pronunciation">Perfekte arabische Aussprache</label>
+                        </div>
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="goals" value="spiritual-connection" id="spiritual-connection">
+                            <label for="spiritual-connection">Tiefere spirituelle Verbindung zum Quran</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 4: Herausforderungen -->
+                <div class="question-section" data-step="4">
+                    <div class="question-number">4</div>
+                    <h2 class="question-title">Was sind deine größten Herausforderungen?</h2>
+                    <p class="question-subtitle">Wobei brauchst du am meisten Hilfe?</p>
+                    
+                    <div class="checkbox-group">
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="challenges" value="pronunciation" id="pronunciation">
+                            <label for="pronunciation">Korrekte Aussprache der Buchstaben</label>
+                        </div>
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="challenges" value="rules" id="rules">
+                            <label for="rules">Tajweed-Regeln verstehen und anwenden</label>
+                        </div>
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="challenges" value="fluency" id="fluency">
+                            <label for="fluency">Flüssig und ohne Stocken lesen</label>
+                        </div>
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="challenges" value="confidence" id="confidence">
+                            <label for="confidence">Selbstvertrauen beim Rezitieren</label>
+                        </div>
+                        <div class="checkbox-option" onclick="selectCheckbox(this)">
+                            <input type="checkbox" name="challenges" value="time" id="time">
+                            <label for="time">Zeit zum regelmäßigen Üben finden</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 5: Lernzeit -->
+                <div class="question-section" data-step="5">
+                    <div class="question-number">5</div>
+                    <h2 class="question-title">Wie viel Zeit kannst du investieren?</h2>
+                    <p class="question-subtitle">Unser Kurs ist auf täglich 15-20 Minuten ausgelegt</p>
+                    
+                    <div class="radio-group">
+                        <div class="radio-option" onclick="selectRadio(this, 'timeCommitment')">
+                            <input type="radio" name="timeCommitment" value="15min" id="15min">
+                            <label for="15min">15-20 Minuten täglich (empfohlen)</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'timeCommitment')">
+                            <input type="radio" name="timeCommitment" value="30min" id="30min">
+                            <label for="30min">30 Minuten täglich</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'timeCommitment')">
+                            <input type="radio" name="timeCommitment" value="weekend" id="weekend">
+                            <label for="weekend">Hauptsächlich am Wochenende (längere Sessions)</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'timeCommitment')">
+                            <input type="radio" name="timeCommitment" value="irregular" id="irregular">
+                            <label for="irregular">Unregelmäßig, je nach verfügbarer Zeit</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 6: Vorerfahrung -->
+                <div class="question-section" data-step="6">
+                    <div class="question-number">6</div>
+                    <h2 class="question-title">Hast du schon mal versucht, Tajweed zu lernen?</h2>
+                    <p class="question-subtitle">Deine Erfahrungen helfen uns, dir besser zu helfen</p>
+                    
+                    <div class="form-group">
+                        <label for="previousExperience">Erzähle uns von deinen bisherigen Erfahrungen</label>
+                        <textarea id="previousExperience" name="previousExperience" placeholder="z.B. Ich habe schon YouTube-Videos geschaut, aber es war verwirrend... oder: Ich hatte mal einen Lehrer, aber..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Frage 7: Motivation -->
+                <div class="question-section" data-step="7">
+                    <div class="question-number">7</div>
+                    <h2 class="question-title">Was motiviert dich am meisten?</h2>
+                    <p class="question-subtitle">Warum ist es dir wichtig, Tajweed zu lernen?</p>
+                    
+                    <div class="radio-group">
+                        <div class="radio-option" onclick="selectRadio(this, 'motivation')">
+                            <input type="radio" name="motivation" value="spiritual" id="spiritual">
+                            <label for="spiritual">Spirituelle Verbindung zum Quran vertiefen</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'motivation')">
+                            <input type="radio" name="motivation" value="community" id="community">
+                            <label for="community">Respekt und Anerkennung in der Gemeinde</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'motivation')">
+                            <input type="radio" name="motivation" value="children" id="children">
+                            <label for="children">Meinen Kindern ein Vorbild sein</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'motivation')">
+                            <input type="radio" name="motivation" value="personal" id="personal">
+                            <label for="personal">Persönliche Zufriedenheit und Selbstvertrauen</label>
+                        </div>
+                        <div class="radio-option" onclick="selectRadio(this, 'motivation')">
+                            <input type="radio" name="motivation" value="knowledge" id="knowledge">
+                            <label for="knowledge">Korrekte Übertragung des Quran</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frage 8: Zusätzliche Informationen -->
+                <div class="question-section" data-step="8">
+                    <div class="question-number">8</div>
+                    <h2 class="question-title">Noch etwas, was wir wissen sollten?</h2>
+                    <p class="question-subtitle">Besondere Umstände, Fragen oder Wünsche?</p>
+                    
+                    <div class="form-group">
+                        <label for="additionalInfo">Zusätzliche Informationen (optional)</label>
+                        <textarea id="additionalInfo" name="additionalInfo" placeholder="z.B. Ich arbeite im Schichtdienst, ich habe Lernbehinderungen, ich möchte besonders schnell vorankommen..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="heardAbout">Wie hast du von uns erfahren?</label>
+                        <select id="heardAbout" name="heardAbout">
+                            <option value="">Bitte auswählen</option>
+                            <option value="google">Google Suche</option>
+                            <option value="social-media">Social Media (Instagram, Facebook, etc.)</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="friend">Freunde/Familie</option>
+                            <option value="mosque">Moschee/Gemeinde</option>
+                            <option value="other">Sonstiges</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="navigation">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" onclick="previousStep()" style="display: none;">← Zurück</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">Weiter →</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Bewerbung absenden</button>
+                </div>
+            </form>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Deine Bewerbung wird verarbeitet...</p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-container" id="successContainer">
+                <div class="success-icon">✓</div>
+                <h2 class="success-title">Bewerbung erfolgreich versendet!</h2>
+                <p class="success-text">
+                    Vielen Dank für deine Bewerbung! Marcel wird sich innerhalb von 24 Stunden bei dir melden 
+                    und dir mitteilen, wie es weitergeht.
+                </p>
+                <p class="success-text">
+                    <strong>Check deine E-Mails</strong> (auch den Spam-Ordner) für weitere Informationen.
+                </p>
+                <a href="index.html" class="btn btn-primary">Zurück zur Hauptseite</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 8;
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Schritt ${currentStep} von ${totalSteps}`;
+        }
+
+        function showStep(step) {
+            // Hide all sections
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.classList.remove('active');
+                if (parseInt(section.dataset.step) < step) {
+                    section.classList.add('completed');
+                } else {
+                    section.classList.remove('completed');
+                }
+            });
+
+            // Show current section
+            const currentSection = document.querySelector(`[data-step="${step}"]`);
+            if (currentSection) {
+                currentSection.classList.add('active');
+            }
+
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            prevBtn.style.display = step > 1 ? 'block' : 'none';
+            
+            if (step < totalSteps) {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            }
+
+            updateProgress();
+        }
+
+        function validateStep(step) {
+            const currentSection = document.querySelector(`[data-step="${step}"]`);
+            const requiredInputs = currentSection.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+
+            requiredInputs.forEach(input => {
+                const formGroup = input.closest('.form-group');
+                if (!input.value.trim()) {
+                    formGroup.classList.add('error');
+                    isValid = false;
+                } else {
+                    formGroup.classList.remove('error');
+                }
+            });
+
+            // Special validation for radio groups
+            if (step === 2) {
+                const radioSelected = currentSection.querySelector('input[name="currentLevel"]:checked');
+                if (!radioSelected) {
+                    alert('Bitte wähle deine aktuelle Situation aus.');
+                    isValid = false;
+                }
+            }
+
+            if (step === 5) {
+                const radioSelected = currentSection.querySelector('input[name="timeCommitment"]:checked');
+                if (!radioSelected) {
+                    alert('Bitte wähle aus, wie viel Zeit du investieren kannst.');
+                    isValid = false;
+                }
+            }
+
+            if (step === 7) {
+                const radioSelected = currentSection.querySelector('input[name="motivation"]:checked');
+                if (!radioSelected) {
+                    alert('Bitte wähle deine Hauptmotivation aus.');
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+        function nextStep() {
+            if (validateStep(currentStep)) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function selectRadio(element, name) {
+            // Remove selected class from all options in this group
+            document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+                input.closest('.radio-option').classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            element.querySelector('input').checked = true;
+        }
+
+        function selectCheckbox(element) {
+            const checkbox = element.querySelector('input');
+            checkbox.checked = !checkbox.checked;
+            
+            if (checkbox.checked) {
+                element.classList.add('selected');
+            } else {
+                element.classList.remove('selected');
+            }
+        }
+
+        // Form submission
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateStep(currentStep)) {
+                return;
+            }
+
+            // Show loading
+            document.querySelector('.form-container').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Get all form values
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    // Handle multiple values (checkboxes)
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            // Simulate form submission
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('successContainer').style.display = 'block';
+                
+                // Here you would normally send the data to your server
+                console.log('Application data:', data);
+                
+                // Store in localStorage for demo purposes
+                localStorage.setItem('applicationData', JSON.stringify(data));
+            }, 2000);
+        });
+
+        // Initialize
+        showStep(1);
+
+        // Smooth scroll to top when changing steps
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add scroll to top when navigating
+        const originalNextStep = nextStep;
+        const originalPreviousStep = previousStep;
+
+        nextStep = function() {
+            originalNextStep();
+            scrollToTop();
+        };
+
+        previousStep = function() {
+            originalPreviousStep();
+            scrollToTop();
+        };
+    </script>
+</body>
+</html>
